@@ -5,51 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMART-EARNING - Version 2 Launch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/96/smart-earning.png">
-    
-    <!-- Social media meta tags -->
-    <meta property="og:title" content="SMART-EARNING - Advanced Investment Platform">
-    <meta property="og:description" content="High return investment platform with proven strategies">
-    <meta property="og:image" content="https://img.icons8.com/fluency/96/smart-earning.png">
-    <meta property="og:url" content="https://smart-earning.com">
-    <meta name="twitter:card" content="summary_large_image">
-    
     <style>
         :root {
-            --primary: #1a2b3c;
-            --secondary: #d4af37;
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
             --accent: #3498db;
-            --light: #f8f9fa;
-            --dark: #1a2b3c;
-            --success: #27ae60;
-            --warning: #e67e22;
-            --gradient: linear-gradient(135deg, #2c3e50, #4a69bd);
-            --gradient-alt: linear-gradient(135deg, #d4af37, #f39c12);
-            --gold: #d4af37;
-            --diamond: #b9f2ff;
-            --platinum: #e5e4e2;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.25);
-            --app-radius: 20px;
-            --app-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --gradient: linear-gradient(135deg, #3498db, #8e44ad);
+            --gradient-alt: linear-gradient(135deg, #e74c3c, #f39c12);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
-            perspective: 1000px;
         }
         
         .container {
@@ -64,12 +43,10 @@
             background: var(--gradient);
             color: white;
             padding: 15px 0;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transform-style: preserve-3d;
+            z-index: 100;
         }
         
         .header-content {
@@ -85,41 +62,16 @@
         }
         
         .logo-img {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-alt);
-            border-radius: 15px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            transform: translateZ(20px);
-        }
-        
-        .logo-img:hover {
-            transform: rotate(5deg) scale(1.05) translateZ(30px);
-        }
-        
-        .logo-img::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: translateX(-100%);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            20% { transform: translateX(100%); }
-            100% { transform: translateX(100%); }
+            color: var(--primary);
+            font-size: 20px;
         }
         
         .logo-text {
@@ -127,22 +79,11 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-            transform: translateZ(10px);
         }
         
-        .logo-text .smart {
-            color: white;
-            font-size: 1.2em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        
-        .logo-text .earning {
-            color: var(--gold);
-            font-size: 1.4em;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        .logo-text span {
+            color: #ffdd59;
+            text-shadow: 0 0 10px rgba(255, 221, 89, 0.5);
         }
         
         .version-badge {
@@ -153,37 +94,15 @@
             font-size: 14px;
             font-weight: 700;
             margin-left: 15px;
-            animation: pulse 2s infinite;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            transform: translateZ(15px);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1) translateZ(15px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
-            50% { transform: scale(1.05) translateZ(20px); box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5); }
-            100% { transform: scale(1) translateZ(15px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transform: translateZ(20px);
         }
         
         /* Hero Section */
         .hero {
             padding: 100px 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%231a2b3c" width="800" height="400"/><path fill="%234a69bd" fill-opacity="0.3" d="M0 192L26.7 202.7C53.3 213 107 235 160 234.7C213.3 235 267 213 320 197.3C373.3 181 427 171 480 186.7C533.3 203 587 245 640 250.7C693.3 256 747 224 773.3 208L800 192L800 401L773.3 401C746.7 401 693 401 640 401C586.7 401 533 401 480 401C426.7 401 373 401 320 401C266.7 401 213 401 160 401C106.7 401 53 401 27 401L0 401Z"></path></svg>') center/cover no-repeat;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%233498db" width="800" height="400"/><path fill="%238e44ad" fill-opacity="0.2" d="M0 192L26.7 202.7C53.3 213 107 235 160 234.7C213.3 235 267 213 320 197.3C373.3 181 427 171 480 186.7C533.3 203 587 245 640 250.7C693.3 256 747 224 773.3 208L800 192L800 401L773.3 401C746.7 401 693 401 640 401C586.7 401 533 401 480 401C426.7 401 373 401 320 401C266.7 401 213 401 160 401C106.7 401 53 401 27 401L0 401Z"></path></svg>') center/cover no-repeat;
             color: white;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
         }
         
         .hero::before {
@@ -193,33 +112,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
         }
         
         .hero .container {
             position: relative;
             z-index: 1;
-            transform-style: preserve-3d;
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 800;
-            background: linear-gradient(to right, #fff, var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transform: translateZ(30px);
         }
         
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            transform: translateZ(20px);
         }
         
         .countdown {
@@ -231,79 +141,111 @@
             margin: 0 auto 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateZ(40px);
-            transform-style: preserve-3d;
         }
         
         .countdown h2 {
             margin-bottom: 20px;
             font-size: 2rem;
-            color: var(--gold);
-            transform: translateZ(10px);
         }
         
         .timer {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            transform-style: preserve-3d;
+            gap: 20px;
         }
         
         .timer-item {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             padding: 20px;
             border-radius: 10px;
-            min-width: 90px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            transform: translateZ(20px);
-        }
-        
-        .timer-item:hover {
-            transform: translateY(-5px) translateZ(30px);
-        }
-        
-        .timer-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
+            min-width: 100px;
         }
         
         .timer-value {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            transform: translateZ(15px);
         }
         
         .timer-label {
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+        
+        /* Branding Section */
+        .branding {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
             color: white;
-            transform: translateZ(10px);
+        }
+        
+        .branding-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-brand {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        
+        .main-brand span {
+            color: #ffdd59;
+            display: block;
+            font-size: 5.5rem;
+        }
+        
+        .branding-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .branding-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .branding-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 250px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .branding-feature i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffdd59;
+        }
+        
+        .branding-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
         
         /* Features Section */
         .features {
             padding: 80px 0;
-            background: var(--light);
-            transform-style: preserve-3d;
+            background: white;
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             color: var(--primary);
-            transform-style: preserve-3d;
         }
         
         .section-title h2 {
@@ -311,11 +253,6 @@
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transform: translateZ(20px);
         }
         
         .section-title p {
@@ -323,144 +260,38 @@
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.2rem;
-            transform: translateZ(15px);
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
-            transform-style: preserve-3d;
         }
         
         .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--app-radius);
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            box-shadow: var(--app-shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-alt);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .feature-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg) translateZ(20px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .feature-icon {
             font-size: 3.5rem;
-            margin-bottom: 25px;
-            color: var(--gold);
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-            padding: 15px;
-            border-radius: 50%;
-            position: relative;
-            transform: translateZ(30px);
-        }
-        
-        .feature-icon::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            background: linear-gradient(135deg, var(--gold), var(--accent)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
+            margin-bottom: 20px;
+            color: var(--accent);
         }
         
         .feature-card h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-            transform: translateZ(15px);
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            transform: translateZ(10px);
-        }
-        
-        /* Form Section */
-        .form-section {
-            padding: 80px 0;
-            background: white;
-            transform-style: preserve-3d;
-        }
-        
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--light);
-            padding: 40px;
-            border-radius: var(--app-radius);
-            box-shadow: var(--app-shadow);
-            transition: box-shadow 0.3s ease;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
-        }
-        
-        .form-container:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateZ(20px);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-            transform-style: preserve-3d;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 700;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-size: 1.1rem;
-            transform: translateZ(10px);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            transform: translateZ(0);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
-            transform: translateY(-2px) translateZ(10px);
+            font-size: 1.5rem;
         }
         
         .btn {
@@ -477,14 +308,12 @@
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            transform: translateZ(0);
         }
         
         .btn:hover {
             background: var(--primary);
-            transform: translateY(-3px) translateZ(20px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn-block {
@@ -495,106 +324,52 @@
         
         .btn-alt {
             background: var(--gradient-alt);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .btn-alt:hover {
             background: var(--secondary);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
         
-        /* Discount Code Section */
-        .discount-section {
-            padding: 60px 0;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            transform-style: preserve-3d;
-        }
-        
-        .discount-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: var(--app-radius);
-            box-shadow: var(--app-shadow);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateZ(30px);
-        }
-        
-        .discount-code {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            background: var(--gradient-alt);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            padding: 15px;
-            border: 2px dashed var(--gold);
-            border-radius: 10px;
-            margin: 20px 0;
-            display: inline-block;
-            transform: translateZ(40px);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-        
-        /* Statement Section */
-        .statement-section {
+        /* Form Section */
+        .form-section {
             padding: 80px 0;
-            background: var(--light);
-            transform-style: preserve-3d;
-        }
-        
-        .statement-container {
-            max-width: 800px;
-            margin: 0 auto;
             background: white;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light);
             padding: 40px;
-            border-radius: var(--app-radius);
-            box-shadow: var(--app-shadow);
-            transform: translateZ(20px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .statement-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary);
-        }
-        
-        .statement-details {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
+        .form-group {
             margin-bottom: 25px;
-            transform: translateZ(10px);
         }
         
-        .statement-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .statement-row:last-child {
-            border-bottom: none;
-        }
-        
-        .statement-label {
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .statement-value {
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--dark);
+            font-size: 1.1rem;
         }
         
-        .discount-value {
-            color: var(--success);
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
         }
         
         /* Footer */
@@ -603,7 +378,6 @@
             color: white;
             padding: 60px 0 30px;
             text-align: center;
-            transform-style: preserve-3d;
         }
         
         .footer-logo {
@@ -611,18 +385,10 @@
             font-weight: 800;
             margin-bottom: 20px;
             text-transform: uppercase;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: translateZ(20px);
         }
         
-        .footer-logo .smart {
-            color: white;
-        }
-        
-        .footer-logo .earning {
-            color: var(--gold);
+        .footer-logo span {
+            color: #ffdd59;
         }
         
         .social-links {
@@ -630,92 +396,37 @@
             justify-content: center;
             gap: 25px;
             margin: 30px 0;
-            transform-style: preserve-3d;
         }
         
         .social-links a {
             color: white;
             font-size: 1.8rem;
-            transition: all 0.3s ease;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateZ(20px);
+            transition: color 0.3s ease, transform 0.3s ease;
         }
         
         .social-links a:hover {
             color: var(--accent);
-            transform: translateY(-5px) translateZ(30px);
-            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
         
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateZ(10px);
-        }
-        
-        /* 3D Effects */
-        .card-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .card-3d-inner {
-            transition: transform 0.5s;
-            transform-style: preserve-3d;
-        }
-        
-        .card-3d:hover .card-3d-inner {
-            transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
-        }
-        
-        /* Mobile App Design Elements */
-        .app-screen {
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: var(--app-shadow);
-            border: 4px solid #222;
-            position: relative;
-            transform: translateZ(30px);
-            margin: 0 auto;
-            max-width: 300px;
-        }
-        
-        .app-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: #222;
-            border-bottom: 1px solid #333;
-            z-index: 10;
-            border-radius: 26px 26px 0 0;
-        }
-        
-        .app-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50%;
-            height: 25px;
-            background: #222;
-            border-radius: 0 0 15px 15px;
-            z-index: 11;
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
+            }
+            
+            .main-brand {
+                font-size: 3.5rem;
+            }
+            
+            .main-brand span {
+                font-size: 4.2rem;
             }
             
             .timer-item {
@@ -729,20 +440,12 @@
         
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: column;
+                gap: 15px;
             }
             
             .logo {
-                margin-bottom: 0;
-            }
-            
-            .header-btns {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
+                margin-bottom: 10px;
             }
             
             .hero h1 {
@@ -751,6 +454,18 @@
             
             .hero p {
                 font-size: 1.1rem;
+            }
+            
+            .main-brand {
+                font-size: 2.8rem;
+            }
+            
+            .main-brand span {
+                font-size: 3.2rem;
+            }
+            
+            .branding-subtitle {
+                font-size: 1.4rem;
             }
             
             .timer {
@@ -770,16 +485,22 @@
                 font-size: 2.2rem;
             }
             
+            .feature-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
             .form-container {
                 padding: 25px;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .branding-features {
+                gap: 20px;
             }
             
-            .discount-code {
-                font-size: 2rem;
+            .branding-feature {
+                width: 100%;
+                max-width: 300px;
             }
         }
         
@@ -799,6 +520,18 @@
             
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .main-brand {
+                font-size: 2.2rem;
+            }
+            
+            .main-brand span {
+                font-size: 2.5rem;
+            }
+            
+            .branding-subtitle {
+                font-size: 1.2rem;
             }
             
             .timer-item {
@@ -829,13 +562,6 @@
             
             .social-links a {
                 font-size: 1.5rem;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .discount-code {
-                font-size: 1.5rem;
-                letter-spacing: 2px;
             }
         }
     </style>
@@ -846,16 +572,10 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-img">$E</div>
-                    <div class="logo-text">
-                        <span class="smart">SMART</span>
-                        <span class="earning">EARNING</span>
-                    </div>
+                    <div class="logo-img">SE</div>
+                    <div class="logo-text">SMART-<span>EARNING</span></div>
                     <div class="version-badge">VERSION 2</div>
                 </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
                 <div class="header-btns">
                     <a href="#register" class="btn">Register Now</a>
                 </div>
@@ -895,66 +615,68 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Branding Section -->
+    <section class="branding">
         <div class="container">
-            <div class="section-title">
-                <h2>Premium Features</h2>
-                <p>Experience the next generation of investment platforms with our exclusive features</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card card-3d">
-                    <div class="card-3d-inner">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Higher Returns</h3>
-                        <p>Up to 25% higher returns on all investment packages with our advanced algorithms</p>
-                    </div>
-                </div>
+            <div class="branding-content">
+                <div class="main-brand">Smart <span>Earning</span></div>
+                <div class="branding-subtitle">Advanced Investment Platform with High Returns</div>
                 
-                <div class="feature-card card-3d">
-                    <div class="card-3d-inner">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Enhanced Security</h3>
-                        <p>Military-grade encryption and multi-factor authentication to protect your investments</p>
+                <div class="branding-features">
+                    <div class="branding-feature">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Advanced Tech</h3>
+                        <p>Cutting-edge algorithms</p>
                     </div>
-                </div>
-                
-                <div class="feature-card card-3d">
-                    <div class="card-3d-inner">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Lightning Fast</h3>
-                        <p>Instant transactions and real-time portfolio tracking with our upgraded infrastructure</p>
+                    
+                    <div class="branding-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure</h3>
+                        <p>Military-grade encryption</p>
                     </div>
-                </div>
-                
-                <div class="feature-card card-3d">
-                    <div class="card-3d-inner">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Mobile Optimized</h3>
-                        <p>Fully responsive design that works perfectly on all mobile devices</p>
+                    
+                    <div class="branding-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>High Returns</h3>
+                        <p>Up to 35% monthly</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Discount Code Section -->
-    <section class="discount-section">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2>Your Exclusive Registration Bonus</h2>
-            <p>Use this unique code during registration to receive your 10% bonus</p>
-            <div class="discount-container">
-                <div class="discount-code" id="discount-code">SMART10</div>
-                <p>This code is unique to you and will be applied automatically when you register</p>
+            <div class="section-title">
+                <h2>SMART-EARNING VERSION 2 ADVANTAGES</h2>
+                <p>Our upgraded platform offers unprecedented investment opportunities with advanced technology</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Advanced Technology</h3>
+                    <p>Version 2 uses cutting-edge algorithms for higher returns and better investment optimization.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Enhanced Security</h3>
+                    <p>Military-grade encryption and multi-layer security protocols to protect your investments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Better Analytics</h3>
+                    <p>Advanced reporting tools and real-time analytics to track your investment performance.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -967,76 +689,32 @@
                 <p>Join the first 20 users and get 10% bonus on any investment package. Submit your details to secure your spot!</p>
             </div>
             
-            <div class="form-container card-3d">
-                <div class="card-3d-inner">
-                    <form id="user-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telegram">Telegram ID</label>
-                            <input type="text" id="telegram" class="form-control" placeholder="Enter your Telegram ID" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="referral">Discount Code</label>
-                            <input type="text" id="referral" class="form-control" value="SMART10" readonly>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-block btn-alt">Register Now & Get 10% Bonus</button>
-                    </form>
+            <div class="form-container">
+                <form id="user-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
                     
-                    <div id="user-data" style="display: none; margin-top: 30px; padding: 20px; background: white; border-radius: 10px;">
-                        <h3>Thank You for Registering!</h3>
-                        <p>We've received your information:</p>
-                        <div id="submitted-data"></div>
-                        <p>We'll contact you shortly via Telegram with further instructions.</p>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statement Section -->
-    <section class="statement-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Your Registration Details</h2>
-                <p>Review your registration information and bonus details</p>
-            </div>
-            
-            <div class="statement-container">
-                <div class="statement-details">
-                    <div class="statement-row">
-                        <span class="statement-label">Registration Date:</span>
-                        <span class="statement-value" id="reg-date">-</span>
+                    
+                    <div class="form-group">
+                        <label for="telegram">Telegram ID</label>
+                        <input type="text" id="telegram" class="form-control" placeholder="Enter your Telegram ID" required>
                     </div>
-                    <div class="statement-row">
-                        <span class="statement-label">User ID:</span>
-                        <span class="statement-value" id="user-id">-</span>
-                    </div>
-                    <div class="statement-row">
-                        <span class="statement-label">Discount Code:</span>
-                        <span class="statement-value" id="disc-code">-</span>
-                    </div>
-                    <div class="statement-row">
-                        <span class="statement-label">Bonus Percentage:</span>
-                        <span class="statement-value discount-value" id="bonus-percent">-</span>
-                    </div>
-                    <div class="statement-row">
-                        <span class="statement-label">Status:</span>
-                        <span class="statement-value" id="status">Not Registered</span>
-                    </div>
-                </div>
+                    
+                    <button type="submit" class="btn btn-block btn-alt">Register Now & Get 10% Bonus</button>
+                </form>
                 
-                <p class="text-center">Your 10% bonus will be automatically applied to your first investment. Keep this information for your records.</p>
+                <div id="user-data" style="display: none; margin-top: 30px; padding: 20px; background: white; border-radius: 10px;">
+                    <h3>Thank You for Registering!</h3>
+                    <p>We've received your information:</p>
+                    <div id="submitted-data"></div>
+                    <p>We'll contact you shortly via Telegram with further instructions.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1044,10 +722,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <span class="smart">SMART</span>
-                <span class="earning">EARNING</span>
-            </div>
+            <div class="footer-logo">SMART-<span>EARNING</span></div>
             <p>High return investment platform with proven strategies</p>
             
             <div class="social-links">
@@ -1087,21 +762,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Generate unique discount code
-        function generateDiscountCode() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let code = 'SMART';
-            for (let i = 0; i < 4; i++) {
-                code += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return code;
-        }
-        
-        // Set discount code
-        const discountCode = generateDiscountCode();
-        document.getElementById('discount-code').textContent = discountCode;
-        document.getElementById('referral').value = discountCode;
-        
         // Form Handling
         document.getElementById('user-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1109,72 +769,17 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const telegram = document.getElementById('telegram').value;
-            const referral = document.getElementById('referral').value;
             
             document.getElementById('submitted-data').innerHTML = `
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Telegram ID:</strong> ${telegram}</p>
-                <p><strong>Discount Code:</strong> ${referral}</p>
             `;
             
             document.getElementById('user-form').style.display = 'none';
             document.getElementById('user-data').style.display = 'block';
             
-            // Update statement section
-            const now = new Date();
-            document.getElementById('reg-date').textContent = now.toLocaleDateString();
-            document.getElementById('user-id').textContent = 'USER' + Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('disc-code').textContent = referral;
-            document.getElementById('bonus-percent').textContent = '10%';
-            document.getElementById('status').textContent = 'Registered - Pending Verification';
-            document.getElementById('status').style.color = '#e67e22';
-            
             // Here you would typically send the data to a server
-        });
-        
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const headerBtns = document.querySelector('.header-btns');
-            if (headerBtns.style.display === 'flex') {
-                headerBtns.style.display = 'none';
-            } else {
-                headerBtns.style.display = 'flex';
-                headerBtns.style.flexDirection = 'column';
-                headerBtns.style.position = 'absolute';
-                headerBtns.style.top = '100%';
-                headerBtns.style.right = '0';
-                headerBtns.style.background = 'var(--gradient)';
-                headerBtns.style.padding = '20px';
-                headerBtns.style.borderRadius = '0 0 10px 10px';
-                headerBtns.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
-            }
-        });
-        
-        // 3D mouse move effect
-        document.addEventListener('mousemove', function(e) {
-            const cards = document.querySelectorAll('.card-3d');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateY = (x - centerX) / 25;
-                const rotateX = (centerY - y) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(10px)`;
-            });
-        });
-        
-        // Reset 3D effect when mouse leaves
-        document.addEventListener('mouseleave', function() {
-            const cards = document.querySelectorAll('.card-3d');
-            cards.forEach(card => {
-                card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)';
-            });
         });
     </script>
 </body>
