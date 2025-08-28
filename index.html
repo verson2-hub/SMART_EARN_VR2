@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMART-EARNING - Version 2 Launch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
     
-    <!-- Favicon and social media meta tags -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/96/smart-earning.png">
+    
+    <!-- Social media meta tags -->
     <meta property="og:title" content="SMART-EARNING - Advanced Investment Platform">
     <meta property="og:description" content="High return investment platform with proven strategies">
     <meta property="og:image" content="https://img.icons8.com/fluency/96/smart-earning.png">
@@ -16,16 +19,20 @@
     
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
+            --primary: #1a2b3c;
+            --secondary: #d4af37;
             --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --gradient: linear-gradient(135deg, #3498db, #8e44ad);
-            --gradient-alt: linear-gradient(135deg, #e74c3c, #f39c12);
-            --gold: #ffd700;
+            --light: #f8f9fa;
+            --dark: #1a2b3c;
+            --success: #27ae60;
+            --warning: #e67e22;
+            --gradient: linear-gradient(135deg, #2c3e50, #4a69bd);
+            --gradient-alt: linear-gradient(135deg, #d4af37, #f39c12);
+            --gold: #d4af37;
+            --diamond: #b9f2ff;
+            --platinum: #e5e4e2;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
         
         * {
@@ -39,6 +46,7 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -53,10 +61,11 @@
             background: var(--gradient);
             color: white;
             padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
         .header-content {
@@ -74,7 +83,7 @@
         .logo-img {
             width: 60px;
             height: 60px;
-            background: var(--gradient);
+            background: var(--gradient-alt);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -85,6 +94,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-img:hover {
+            transform: rotate(5deg) scale(1.05);
         }
         
         .logo-img::before {
@@ -122,7 +136,7 @@
         .logo-text .earning {
             color: var(--gold);
             font-size: 1.4em;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
         
         .version-badge {
@@ -134,21 +148,33 @@
             font-weight: 700;
             margin-left: 15px;
             animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
             padding: 100px 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%233498db" width="800" height="400"/><path fill="%238e44ad" fill-opacity="0.2" d="M0 192L26.7 202.7C53.3 213 107 235 160 234.7C213.3 235 267 213 320 197.3C373.3 181 427 171 480 186.7C533.3 203 587 245 640 250.7C693.3 256 747 224 773.3 208L800 192L800 401L773.3 401C746.7 401 693 401 640 401C586.7 401 533 401 480 401C426.7 401 373 401 320 401C266.7 401 213 401 160 401C106.7 401 53 401 27 401L0 401Z"></path></svg>') center/cover no-repeat;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%231a2b3c" width="800" height="400"/><path fill="%234a69bd" fill-opacity="0.3" d="M0 192L26.7 202.7C53.3 213 107 235 160 234.7C213.3 235 267 213 320 197.3C373.3 181 427 171 480 186.7C533.3 203 587 245 640 250.7C693.3 256 747 224 773.3 208L800 192L800 401L773.3 401C746.7 401 693 401 640 401C586.7 401 533 401 480 401C426.7 401 373 401 320 401C266.7 401 213 401 160 401C106.7 401 53 401 27 401L0 401Z"></path></svg>') center/cover no-repeat;
             color: white;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
@@ -158,7 +184,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
         }
         
         .hero .container {
@@ -171,12 +197,17 @@
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         
         .countdown {
@@ -193,21 +224,28 @@
         .countdown h2 {
             margin-bottom: 20px;
             font-size: 2rem;
+            color: var(--gold);
         }
         
         .timer {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
         
         .timer-item {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             padding: 20px;
             border-radius: 10px;
-            min-width: 100px;
+            min-width: 90px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .timer-item:hover {
+            transform: translateY(-5px);
         }
         
         .timer-item::before {
@@ -224,18 +262,21 @@
         .timer-value {
             font-size: 3rem;
             font-weight: 800;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
         
         .timer-label {
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: white;
         }
         
-        /* Form Section */
-        .form-section {
+        /* Features Section */
+        .features {
             padding: 80px 0;
-            background: white;
+            background: var(--light);
         }
         
         .section-title {
@@ -249,6 +290,10 @@
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .section-title p {
@@ -258,13 +303,100 @@
             font-size: 1.2rem;
         }
         
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-alt);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            padding: 15px;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, var(--gold), var(--accent)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
         .form-container {
             max-width: 600px;
             margin: 0 auto;
             background: var(--light);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .form-container:hover {
+            box-shadow: var(--shadow-hover);
         }
         
         .form-group {
@@ -285,13 +417,14 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1.1rem;
-            transition: border 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            transform: translateY(-2px);
         }
         
         .btn {
@@ -308,12 +441,13 @@
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
         
         .btn:hover {
             background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
         .btn-block {
@@ -324,10 +458,12 @@
         
         .btn-alt {
             background: var(--gradient-alt);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .btn-alt:hover {
             background: var(--secondary);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
         
         /* Footer */
@@ -366,18 +502,41 @@
         .social-links a {
             color: white;
             font-size: 1.8rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .social-links a:hover {
             color: var(--accent);
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
         }
         
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 3D Effects */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .card-3d-inner {
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+        }
+        
+        .card-3d:hover .card-3d-inner {
+            transform: rotateY(10deg) rotateX(5deg);
         }
         
         /* Responsive Design */
@@ -397,12 +556,20 @@
         
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                justify-content: space-between;
             }
             
             .logo {
-                margin-bottom: 10px;
+                margin-bottom: 0;
+            }
+            
+            .header-btns {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero h1 {
@@ -432,6 +599,10 @@
             
             .form-container {
                 padding: 25px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -481,6 +652,8 @@
             
             .social-links a {
                 font-size: 1.5rem;
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -498,6 +671,9 @@
                     </div>
                     <div class="version-badge">VERSION 2</div>
                 </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="header-btns">
                     <a href="#register" class="btn">Register Now</a>
                 </div>
@@ -537,6 +713,58 @@
         </div>
     </section>
 
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Features</h2>
+                <p>Experience the next generation of investment platforms with our exclusive features</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card card-3d">
+                    <div class="card-3d-inner">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Higher Returns</h3>
+                        <p>Up to 25% higher returns on all investment packages with our advanced algorithms</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card card-3d">
+                    <div class="card-3d-inner">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Enhanced Security</h3>
+                        <p>Military-grade encryption and multi-factor authentication to protect your investments</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card card-3d">
+                    <div class="card-3d-inner">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Instant transactions and real-time portfolio tracking with our upgraded infrastructure</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card card-3d">
+                    <div class="card-3d-inner">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Optimized</h3>
+                        <p>Fully responsive design that works perfectly on all mobile devices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Form Section -->
     <section class="form-section" id="register">
         <div class="container">
@@ -545,31 +773,33 @@
                 <p>Join the first 20 users and get 10% bonus on any investment package. Submit your details to secure your spot!</p>
             </div>
             
-            <div class="form-container">
-                <form id="user-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                    </div>
+            <div class="form-container card-3d">
+                <div class="card-3d-inner">
+                    <form id="user-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telegram">Telegram ID</label>
+                            <input type="text" id="telegram" class="form-control" placeholder="Enter your Telegram ID" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block btn-alt">Register Now & Get 10% Bonus</button>
+                    </form>
                     
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <div id="user-data" style="display: none; margin-top: 30px; padding: 20px; background: white; border-radius: 10px;">
+                        <h3>Thank You for Registering!</h3>
+                        <p>We've received your information:</p>
+                        <div id="submitted-data"></div>
+                        <p>We'll contact you shortly via Telegram with further instructions.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="telegram">Telegram ID</label>
-                        <input type="text" id="telegram" class="form-control" placeholder="Enter your Telegram ID" required>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block btn-alt">Register Now & Get 10% Bonus</button>
-                </form>
-                
-                <div id="user-data" style="display: none; margin-top: 30px; padding: 20px; background: white; border-radius: 10px;">
-                    <h3>Thank You for Registering!</h3>
-                    <p>We've received your information:</p>
-                    <div id="submitted-data"></div>
-                    <p>We'll contact you shortly via Telegram with further instructions.</p>
                 </div>
             </div>
         </div>
@@ -639,6 +869,24 @@
             document.getElementById('user-data').style.display = 'block';
             
             // Here you would typically send the data to a server
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const headerBtns = document.querySelector('.header-btns');
+            if (headerBtns.style.display === 'flex') {
+                headerBtns.style.display = 'none';
+            } else {
+                headerBtns.style.display = 'flex';
+                headerBtns.style.flexDirection = 'column';
+                headerBtns.style.position = 'absolute';
+                headerBtns.style.top = '100%';
+                headerBtns.style.right = '0';
+                headerBtns.style.background = 'var(--gradient)';
+                headerBtns.style.padding = '20px';
+                headerBtns.style.borderRadius = '0 0 10px 10px';
+                headerBtns.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+            }
         });
     </script>
 </body>
